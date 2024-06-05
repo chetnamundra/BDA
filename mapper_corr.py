@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+import sys
+import csv
+
+
+def read_input(file):
+    for line in csv.reader(file):
+        yield line
+
+
+def main():
+    data = read_input(sys.stdin)
+    for fields in data:
+        try:
+            if fields[0] == "Date":
+                continue  # Skip the header line
+            date = fields[0]
+            closing_price = fields[
+                2
+            ]  # Assuming the closing price is in the third column (index 2)
+            print(f"{date}\t{closing_price}")
+        except IndexError:
+            continue
+        except ValueError:
+            continue
+
+
+if __name__ == "__main__":
+    main()
+=======
 import sys
 import csv
 
@@ -25,3 +55,4 @@ def main(stock_symbol):
 if __name__ == "__main__":
     stock_symbol = sys.argv[1]
     main(stock_symbol)
+>>>>>>> 7a42576e1897d86858dfb56149328bc36ac5ec04
